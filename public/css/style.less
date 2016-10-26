@@ -8,15 +8,15 @@
 .eye-wrapper {
   font-size: 16px;
   color: #000;
-  position: relative;
   left: 0;
   top: 0;
   width: 100%;
   border-bottom: 2px solid #333;
 
   .eye-wrapper-content {
-    width: 1250px;
+    width: 1290px;
     margin: auto;
+    position: relative;
     .parent;
   }
 
@@ -99,7 +99,6 @@
           display: block;
           float: left;
           background-color: #fff;
-          margin-right: -1px;
           cursor: pointer;
 
           &:after {
@@ -117,7 +116,11 @@
             content: '';
           }
 
-          &.black {
+          &.active {
+            box-shadow: 0 5px 0 0 #000;
+          }
+
+          &.color-black {
             background-color: #000;
 
             &:after {
@@ -125,7 +128,7 @@
             }
           }
 
-          &.blue {
+          &.color-blue {
             background: #abd4f6;
             border-color: #abd4f6;
 
@@ -134,7 +137,7 @@
             }
           }
 
-          &.yellow {
+          &.color-yellow {
             background: #eee8c5;
             border-color: #eee8c5;
 
@@ -143,7 +146,7 @@
             }
           }
 
-          &.green {
+          &.color-green {
             background: #000;
             border-color: #000;
 
@@ -214,4 +217,89 @@
       }
     }
   }
+
+  .eye-setting {
+    position: absolute;
+    bottom: -32px;
+    right: 0;
+    width: auto;
+
+    .eye-setting-head {
+      display: block;
+      position: relative;
+      z-index: 5;
+      background-color: #000;
+      line-height: 32px;
+      padding: 0 20px 0 40px;
+      cursor: pointer;
+      color: #fff;
+      height: 32px;
+      font-weight: normal;
+      font-family: 'Arial', 'sans-serif';
+      font-size: 15px;
+      .user;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 10px;
+        margin: auto;
+      }
+
+
+    }
+
+    .eye-wrapper-modal {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 340px;
+      border: 5px solid #000;
+      background-color: #fff;
+      z-index: 4;
+      padding: 50px 15px 0;
+      display: none;
+      .box;
+
+      &.active {
+        display: block;
+      }
+
+      .eye-wrapper-modal-item {
+        .box;
+        margin-bottom: 20px;
+
+        .eye-wrapper-modal-item-name {
+          padding: 0 0 15px;
+          font-size: 18px;
+        }
+
+        .eye-wrapper-modal-item-wrapper {
+          border: 1px solid #000;
+
+          .eye-wrapper-modal-item-wrapper-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #000;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+
+            &:last-child {
+              border-bottom: 0;
+            }
+
+            &.active {
+              background-color: #000;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
 }
