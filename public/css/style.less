@@ -1,0 +1,217 @@
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.eye-wrapper {
+  font-size: 16px;
+  color: #000;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid #333;
+
+  .eye-wrapper-content {
+    width: 1250px;
+    margin: auto;
+    .parent;
+  }
+
+  .eye-wrapper-item {
+    height: 64px;
+    float: left;
+    margin-right: 20px;
+    .parent;
+
+    &.right {
+      float: right;
+    }
+
+    .eye-wrapper-item-name {
+      display: block;
+      float: left;
+      line-height: 64px;
+      font-size: 18px;
+    }
+
+    .eye-wrapper-item-data {
+      height: 100%;
+      padding-left: 10px;
+      .flex-display;
+      .box;
+
+      .eye-wrapper-item-data-fonts {
+        height: auto;
+        position: relative;
+        margin: auto 0;
+        border: 1px solid #000;
+        .parent;
+
+        span {
+          border-right: 1px solid #000;
+          display: block;
+          height: 38px;
+          width: 38px;
+          text-align: center;
+          line-height: 38px;
+          float: left;
+          font-weight: bold;
+          cursor: pointer;
+          .box;
+
+          &:last-child {
+            border-right: 0;
+          }
+
+          &.font-min {
+            font-size: 15px;
+          }
+
+          &.font-middle {
+            font-size: 18px;
+          }
+
+          &.font-big {
+            font-size: 27px;
+          }
+
+          &.active {
+            background-color: #000;
+            color: #fff;
+          }
+        }
+      }
+
+      .eye-wrapper-item-data-color {
+        height: auto;
+        position: relative;
+        margin: auto 0;
+        .parent;
+
+        span {
+          width: 38px;
+          height: 38px;
+          position: relative;
+          border: 1px solid #000;
+          display: block;
+          float: left;
+          background-color: #fff;
+          margin-right: -1px;
+          cursor: pointer;
+
+          &:after {
+            width: 14px;
+            height: 14px;
+            border-radius: 100%;
+            background-color: #000;
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            content: '';
+          }
+
+          &.black {
+            background-color: #000;
+
+            &:after {
+              background: #fff;
+            }
+          }
+
+          &.blue {
+            background: #abd4f6;
+            border-color: #abd4f6;
+
+            &:after {
+              background: #002663;
+            }
+          }
+
+          &.yellow {
+            background: #eee8c5;
+            border-color: #eee8c5;
+
+            &:after {
+              background: #493934;
+            }
+          }
+
+          &.green {
+            background: #000;
+            border-color: #000;
+
+            &:after {
+              background: #c1e770;
+            }
+          }
+
+
+        }
+      }
+
+      .eye-wrapper-item-data-checkbox {
+        height: auto;
+        position: relative;
+        margin: auto 0;
+        border: 1px solid #000;
+        .parent;
+
+        span {
+          border-right: 1px solid #000;
+          display: block;
+          height: 38px;
+          text-align: center;
+          line-height: 38px;
+          float: left;
+          font-weight: bold;
+          cursor: pointer;
+          padding: 0 10px;
+          font-family: 'Arial', 'sans-serif';
+          font-size: 13px;
+          .box;
+
+          &:last-child {
+            border-right: 0;
+          }
+
+          &.active {
+            background: #000;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .eye-wrapper-item-back {
+      position: relative;
+      line-height: 64px;
+      padding-left: 35px;
+      font-family: 'Arial', 'sans-serif';
+      color: #000;
+      cursor: pointer;
+      .box;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+}
