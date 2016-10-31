@@ -1,3 +1,34 @@
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function (callbackfn, thisArg) {
+        var O = Object(this),
+            lenValue = O.length,
+            len = lenValue >>> 0,
+            T,
+            k,
+            Pk,
+            kPresent,
+            kValue;
+
+        if (typeof callbackfn !== 'function') {
+            throw new TypeError();
+        }
+
+        T = thisArg ? thisArg : undefined;
+
+        k = 0;
+        while (k < len) {
+            Pk = k.toString();
+            kPresent = O.hasOwnProperty(Pk);
+            if (kPresent) {
+                kValue = O[Pk];
+                callbackfn.call(T, kValue, k, O);
+            }
+            k += 1;
+        }
+        return undefined;
+    };
+}
+
 var eye = {
     init: function () {
         this.defaultValue();
@@ -128,7 +159,7 @@ var eye = {
 
     font: function () {
         var arr = document.querySelectorAll('.eye-wrapper-item-data-fonts-item');
-        arr.forEach(function (item, i, arr) {
+        [].forEach.call(arr, function (item, i, arr) {
 
             item.addEventListener('click', function (e) {
                 document.querySelector('.eye-wrapper-item-data-fonts-item.active').classList.remove('active');
@@ -146,7 +177,7 @@ var eye = {
 
     fontSeirf: function () {
         var arr = document.querySelectorAll('.eye-wrapper-modal-item-wrapper-item.type-font');
-        arr.forEach(function (item, i, arr) {
+        [].forEach.call(arr, function (item, i, arr) {
 
             item.addEventListener('click', function (e) {
                 document.querySelector('.eye-wrapper-modal-item-wrapper-item.type-font.active').classList.remove('active');
@@ -164,7 +195,7 @@ var eye = {
 
     letterSpacing: function () {
         var arr = document.querySelectorAll('.eye-wrapper-modal-item-wrapper-item.letter-spacing');
-        arr.forEach(function (item, i, arr) {
+        [].forEach.call(arr, function (item, i, arr) {
 
             item.addEventListener('click', function (e) {
                 document.querySelector('.eye-wrapper-modal-item-wrapper-item.letter-spacing.active').classList.remove('active');
@@ -182,7 +213,7 @@ var eye = {
 
     lineHeight: function () {
         var arr = document.querySelectorAll('.eye-wrapper-modal-item-wrapper-item.line-height');
-        arr.forEach(function (item, i, arr) {
+        [].forEach.call(arr, function (item, i, arr) {
 
             item.addEventListener('click', function (e) {
                 document.querySelector('.eye-wrapper-modal-item-wrapper-item.line-height.active').classList.remove('active');
@@ -200,7 +231,7 @@ var eye = {
 
     imgFilter: function () {
         var arr = document.querySelectorAll('.eye-wrapper-modal-item-wrapper-item.img-filter');
-        arr.forEach(function (item, i, arr) {
+        [].forEach.call(arr, function (item, i, arr) {
 
             item.addEventListener('click', function (e) {
                 document.querySelector('.eye-wrapper-modal-item-wrapper-item.img-filter.active').classList.remove('active');
@@ -218,7 +249,7 @@ var eye = {
 
     color: function () {
         var arr = document.querySelectorAll('.eye-wrapper-item-data-color-item');
-        arr.forEach(function (item, i, arr) {
+        [].forEach.call(arr, function (item, i, arr) {
 
             item.addEventListener('click', function (e) {
                 document.querySelector('.eye-wrapper-item-data-color-item.active').classList.remove('active');
@@ -236,7 +267,7 @@ var eye = {
 
     img: function () {
         var arr = document.querySelectorAll('.eye-wrapper-item-data-checkbox-item');
-        arr.forEach(function (item, i, arr) {
+        [].forEach.call(arr, function (item, i, arr) {
 
             item.addEventListener('click', function (e) {
                 document.querySelector('.eye-wrapper-item-data-checkbox-item.active').classList.remove('active');
